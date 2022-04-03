@@ -10,8 +10,8 @@
   <artifactId>mpm</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>Minecraft Package Manager</name>
-  <url>http://www.example.com</url>
+  <name>Minecraft Plugin Manager</name>
+  <url>https://github.com/HandsomeRomanian/MinecraftPackageManager/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

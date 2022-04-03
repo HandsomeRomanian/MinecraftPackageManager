@@ -1,4 +1,4 @@
-# Roadmap.... lmao
+# Roadmap....
 
 1. Just have a list of plugins and download it.
 2. Check Minecraft version compatibility.
