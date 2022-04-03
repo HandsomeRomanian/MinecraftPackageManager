@@ -1,19 +1,19 @@
-package info.matai.services.server;
+package info.matai.services.server.instances;
 
-import java.io.File;
+import info.matai.services.server.IServerFetcherService;
 import java.util.List;
 
 public class SpigotFetcherService implements IServerFetcherService {
 
   @Override
-  public List<String> getVersion() {
+  public List<String> getVersions() {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public File downLoadVersion() {
+  public boolean downLoadVersion(String version) {
     // TODO Auto-generated method stub
-    return null;
+    return false;
   }
 }

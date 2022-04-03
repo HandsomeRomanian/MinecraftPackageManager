@@ -1,15 +1,49 @@
 package info.matai.models.configuration;
 
+import info.matai.models.enums.ServerTypes;
 import java.util.List;
 
 public class Server {
   private String mcVersion;
-  private String serverType;
+  private ServerTypes serverType;
+  private String serverBuild;
   private List<Plugin> plugins;
 
   public Server(String mcVersion, String serverType, List<Plugin> plugins) {
-    this.mcVersion = mcVersion;
-    this.serverType = serverType;
+    this.setMcVersion(mcVersion);
+    this.setServerType(serverType);
+    this.setPlugins(plugins);
+  }
+
+  public List<Plugin> getPlugins() {
+    return plugins;
+  }
+
+  public void setPlugins(List<Plugin> plugins) {
     this.plugins = plugins;
+  }
+
+  public String getServerBuild() {
+    return serverBuild;
+  }
+
+  public void setServerBuild(String serverBuild) {
+    this.serverBuild = serverBuild;
+  }
+
+  public ServerTypes getServerType() {
+    return serverType;
+  }
+
+  public void setServerType(ServerTypes serverType) {
+    this.serverType = serverType;
+  }
+
+  public String getMcVersion() {
+    return mcVersion;
+  }
+
+  public void setMcVersion(String mcVersion) {
+    this.mcVersion = mcVersion;
   }
 }

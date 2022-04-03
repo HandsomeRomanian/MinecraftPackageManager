@@ -2,6 +2,7 @@
   "v1": {
     "mcVersion": "1.12.2",
     "serverType": "spigot",
+    "serverBuild": "124",
     "plugins": [
       {
         "name": "enssentialsXchat"
