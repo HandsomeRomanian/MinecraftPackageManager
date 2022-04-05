@@ -13,9 +13,6 @@ public class MainCommand implements Callable<String> {
   static final String serverPath = "./";
   static final String pluginsPath = "./plugins";
 
-  private File pluginFile;
-  private File pluginLockFile;
-
   @Command(name = "install")
   public String install() {
     loadPluginsFile();
@@ -43,8 +40,8 @@ public class MainCommand implements Callable<String> {
   //TODO Init command eventually?
 
   private void loadPluginsFile() {
-    pluginFile = new File(serverPath, "plugin.json");
-    pluginLockFile = new File(serverPath, "plugin-lock.json");
+    final File pluginFile = new File(serverPath, "plugins.json");
+    final File pluginLockFile = new File(serverPath, "plugins-lock.json");
 
     if (pluginFile.exists() && !pluginLockFile.exists()) {
       try {
@@ -67,7 +64,7 @@ public class MainCommand implements Callable<String> {
   }
 
   private void downloadAllPlugins() {
-    // TODO Code that goes & fetches all the plugin jars & data from the plugin list in the plugin.json file
+    // TODO Code that goes & fetches all the plugin jars & data from the plugin list in the plugins.json file
     // Also needs to write down what was actually fetch in the locked json file.
 
 
