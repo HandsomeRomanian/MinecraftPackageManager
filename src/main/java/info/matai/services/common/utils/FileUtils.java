@@ -10,11 +10,12 @@ public class FileUtils {
   }
 
   public static String readFile(File file) {
-    try {
-      return Files.readString(file.toPath());
-    } catch (Exception e) {
-      return null;
-    }
+//    try {
+//      return Files.readString(file.toPath());
+//    } catch (Exception e) {
+//      return null;
+//    }
+    return null;
   }
 
   public static boolean exist(File file) {

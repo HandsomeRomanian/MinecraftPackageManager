@@ -1,12 +1,13 @@
 package info.matai;
 
 import info.matai.commands.MainCommand;
+import info.matai.core.MpmCore;
+
 import picocli.CommandLine;
 
 public class App {
 
-  public static void main(String[] args) {
-    int exitCode = new CommandLine(new MainCommand()).execute(args);
-    System.exit(exitCode);
-  }
+    public static void main(String[] args) {
+        System.exit(new CommandLine(MainCommand.class).execute(args));
+    }
 }
