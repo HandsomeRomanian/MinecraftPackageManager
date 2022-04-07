@@ -2,7 +2,6 @@ package info.matai.models.configuration;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
 import java.util.Map;
 
 public class Plugin {
@@ -15,7 +14,7 @@ public class Plugin {
     @JsonProperty("version")
     private String version;
 
-    @JsonProperty("depdenencies")
+    @JsonProperty("dependencies")
     private Map<String, String> dependencies;
 
     protected Plugin() {}

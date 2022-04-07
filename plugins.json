@@ -2,6 +2,7 @@
   "version": "1.0.0",
   "mcVersion": "1.12.2",
   "serverType": "1.15.2",
+  "build": 123,
   "plugins": {
     "dynmap": ">=0.1.0"
   }

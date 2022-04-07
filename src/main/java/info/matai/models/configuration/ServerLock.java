@@ -12,14 +12,18 @@ public class ServerLock {
     @JsonProperty("serverType")
     private ServerTypes serverType;
 
+    @JsonProperty("build")
+    private Integer buildVersion;
+
     @JsonProperty("plugins")
     private List<Plugin> plugins;
 
     protected ServerLock() {}
 
-    public ServerLock(String mcVersion, ServerTypes serverType, List<Plugin> plugins) {
+    public ServerLock(String mcVersion, ServerTypes serverType, Integer buildVersion, List<Plugin> plugins) {
         this.mcVersion = mcVersion;
         this.serverType = serverType;
+        this.buildVersion = buildVersion;
         this.plugins = plugins;
     }
 
@@ -35,6 +39,13 @@ public class ServerLock {
     }
     public void setServerType(ServerTypes serverType) {
         this.serverType = serverType;
+    }
+
+    public Integer getBuildVersion() {
+        return buildVersion;
+    }
+    public void setBuildVersion(Integer buildVersion) {
+        this.buildVersion = buildVersion;
     }
 
     public List<Plugin> getPlugins() {

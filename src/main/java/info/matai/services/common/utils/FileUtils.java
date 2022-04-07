@@ -2,7 +2,6 @@ package info.matai.services.common.utils;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.logging.Logger;
 
 public class FileUtils {

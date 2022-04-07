@@ -6,11 +6,13 @@ import info.matai.services.common.utils.FileUtils;
 import info.matai.services.common.utils.JsonUtils;
 
 import java.io.File;
-import java.util.logging.Logger;
 
 public class PluginFileReaderService {
 
-    private static final Logger LOGGER = Logger.getGlobal();
+    public boolean isInitialized() {
+        // LOGGER.warning("Server is not initialized, please run `mpm init`");
+        return getServerFromPlugin() != null && getServerFromPluginLock() != null;
+    }
 
     public Server getServerFromPlugin() {
         final File pluginsFile = FileUtils.getOrCreateFile("plugins.json");
@@ -18,7 +20,6 @@ public class PluginFileReaderService {
 
         if (server == null) {
             // TODO: Init the project?
-            LOGGER.warning("plugins.json is not initialized");
             return null;
         }
 
@@ -31,7 +32,6 @@ public class PluginFileReaderService {
 
         if (serverLock == null) {
             // TODO: Init the project?
-            LOGGER.warning("plugins-lock.json is not initialized");
             return null;
         }
 

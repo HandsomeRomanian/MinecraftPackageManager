@@ -14,14 +14,18 @@ public class Server {
     @JsonProperty("serverType")
     private String serverType;
 
+    @JsonProperty("build")
+    private Integer buildVersion;
+
     @JsonProperty("plugins")
     private Map<String, String> plugins;
 
     protected Server() {}
 
-    public Server(String mcVersion, String serverType, Map<String, String> plugins) {
+    public Server(String mcVersion, String serverType, Integer buildVersion, Map<String, String> plugins) {
         this.mcVersion = mcVersion;
         this.serverType = serverType;
+        this.buildVersion = buildVersion;
         this.plugins = plugins;
     }
 
@@ -44,6 +48,13 @@ public class Server {
     }
     public void setServerType(String serverType) {
         this.serverType = serverType;
+    }
+
+    public Integer getBuildVersion() {
+        return buildVersion;
+    }
+    public void setBuildVersion(Integer buildVersion) {
+        this.buildVersion = buildVersion;
     }
 
     public Map<String, String> getPlugins() {
