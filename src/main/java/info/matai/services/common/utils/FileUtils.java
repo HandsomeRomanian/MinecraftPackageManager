@@ -1,35 +1,41 @@
 package info.matai.services.common.utils;
 
 import java.io.File;
-import java.nio.file.Files;
+import java.io.IOException;
+import java.util.logging.Logger;
 
 public class FileUtils {
 
-  public static File getFile(String fileName) {
-    return new File(fileName);
-  }
+    private static final Logger LOGGER = Logger.getLogger(FileUtils.class.getName());
 
-  public static String readFile(File file) {
-    try {
-      return Files.readString(file.toPath());
-    } catch (Exception e) {
-      return null;
+    public static File getFile(String fileName) {
+        return new File(fileName);
     }
-  }
 
-  public static boolean exist(File file) {
-    return file.exists();
-  }
+    public static File createFile(String fileName) {
+        File file = new File(fileName);
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            LOGGER.severe("Can't create file: " + fileName);
+        }
+        return file;
+    }
 
-  public static boolean notExist(File file) {
-    return !exist(file);
-  }
+    public static File getOrCreateFile(String fileName) {
+        final File file = getFile(fileName);
 
-  public static boolean isEmpty(File file) {
-    return file.length() == 0;
-  }
+        if (notExist(file)) {
+            return createFile(fileName);
+        }
+        return file;
+    }
 
-  public static boolean isNotEmpty(File file) {
-    return !isEmpty(file);
-  }
+    public static boolean exist(File file) {
+        return file.exists();
+    }
+
+    public static boolean notExist(File file) {
+        return !exist(file);
+    }
 }

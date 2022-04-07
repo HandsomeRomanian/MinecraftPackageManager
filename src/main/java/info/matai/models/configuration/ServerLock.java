@@ -1,39 +1,30 @@
 package info.matai.models.configuration;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import info.matai.models.enums.ServerTypes;
 
-import java.util.Map;
+import java.util.List;
 
-public class Server {
-    @JsonProperty("version")
-    private String version;
-
+public class ServerLock {
     @JsonProperty("mcVersion")
     private String mcVersion;
 
     @JsonProperty("serverType")
-    private String serverType;
+    private ServerTypes serverType;
 
     @JsonProperty("build")
     private Integer buildVersion;
 
     @JsonProperty("plugins")
-    private Map<String, String> plugins;
+    private List<Plugin> plugins;
 
-    protected Server() {}
+    protected ServerLock() {}
 
-    public Server(String mcVersion, String serverType, Integer buildVersion, Map<String, String> plugins) {
+    public ServerLock(String mcVersion, ServerTypes serverType, Integer buildVersion, List<Plugin> plugins) {
         this.mcVersion = mcVersion;
         this.serverType = serverType;
         this.buildVersion = buildVersion;
         this.plugins = plugins;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-    public void setVersion(String version) {
-        this.version = version;
     }
 
     public String getMcVersion() {
@@ -43,10 +34,10 @@ public class Server {
         this.mcVersion = mcVersion;
     }
 
-    public String getServerType() {
+    public ServerTypes getServerType() {
         return serverType;
     }
-    public void setServerType(String serverType) {
+    public void setServerType(ServerTypes serverType) {
         this.serverType = serverType;
     }
 
@@ -57,10 +48,10 @@ public class Server {
         this.buildVersion = buildVersion;
     }
 
-    public Map<String, String> getPlugins() {
+    public List<Plugin> getPlugins() {
         return plugins;
     }
-    public void setPlugins(Map<String, String> plugins) {
+    public void setPlugins(List<Plugin> plugins) {
         this.plugins = plugins;
     }
 }

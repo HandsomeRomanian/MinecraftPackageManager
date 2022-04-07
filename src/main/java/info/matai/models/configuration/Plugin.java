@@ -1,54 +1,65 @@
 package info.matai.models.configuration;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Map;
 
 public class Plugin {
-  private String name;
-  private String mcVersion;
-  private String version;
-  private List<Plugin> dependencies;
+    @JsonProperty("name")
+    private String name;
 
-  public Plugin(
-    String name,
-    String mcVersion,
-    String version,
-    List<Plugin> dependencies
-  ) {
-    this.name = name;
-    this.mcVersion = mcVersion;
-    this.version = version;
-    this.dependencies = dependencies;
-  }
+    @JsonProperty("mcVersion")
+    private String mcVersion;
 
-  public String getName() {
-    return name;
-  }
+    @JsonProperty("version")
+    private String version;
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    @JsonProperty("dependencies")
+    private Map<String, String> dependencies;
 
-  public String getMcVersion() {
-    return mcVersion;
-  }
+    protected Plugin() {}
 
-  public void setMcVersion(String mcVersion) {
-    this.mcVersion = mcVersion;
-  }
+    public Plugin(
+            String name,
+            String mcVersion,
+            String version,
+            Map<String, String> dependencies
+    ) {
+        this.name = name;
+        this.mcVersion = mcVersion;
+        this.version = version;
+        this.dependencies = dependencies;
+    }
 
-  public String getVersion() {
-    return version;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setVersion(String version) {
-    this.version = version;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public List<Plugin> getDependencies() {
-    return dependencies;
-  }
+    public String getMcVersion() {
+        return mcVersion;
+    }
 
-  public void setDependencies(List<Plugin> dependencies) {
-    this.dependencies = dependencies;
-  }
+    public void setMcVersion(String mcVersion) {
+        this.mcVersion = mcVersion;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public Map<String, String> getDependencies() {
+        return dependencies;
+    }
+
+    public void setDependencies(Map<String, String> dependencies) {
+        this.dependencies = dependencies;
+    }
 }
