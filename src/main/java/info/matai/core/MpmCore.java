@@ -12,19 +12,20 @@ public class MpmCore {
 
     private static MpmCore instance;
 
-     private MpmCore() {}
+    private MpmCore() {
+        loadPluginsFile();
+    }
 
-     public static MpmCore getInstance() {
-         if(instance == null){
-             instance = new MpmCore();
-         }
-         return instance;
-     }
+    public static MpmCore getInstance() {
+        if (instance == null) {
+            instance = new MpmCore();
+        }
+        return instance;
+    }
 
     public String test() {
         return "Waddup loser";
     }
-
 
     private void loadPluginsFile() {
         pluginFile = new File(serverPath, "plugin.json");

@@ -1,6 +1,7 @@
 package info.matai.services.common.utils;
 
 import java.io.File;
+import java.net.URL;
 import java.nio.file.Files;
 
 public class FileUtils {
@@ -32,5 +33,17 @@ public class FileUtils {
 
   public static boolean isNotEmpty(File file) {
     return !isEmpty(file);
+  }
+
+  public static boolean downloadFile(String url, String filePath) {
+    try {
+      org.apache.commons.io.FileUtils.copyURLToFile(
+        new URL(url),
+        new File(filePath)
+      );
+      return true;
+    } catch (Exception e) {
+      return false;
+    }
   }
 }
