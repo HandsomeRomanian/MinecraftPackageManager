@@ -1,6 +1,6 @@
 package info.matai.models.enums;
 
-public enum ServerTypes {
+public enum ServerType {
   BUKKIT,
   SPIGOT,
   PAPERMC,

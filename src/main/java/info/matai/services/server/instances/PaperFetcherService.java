@@ -2,7 +2,7 @@ package info.matai.services.server.instances;
 
 import com.google.gson.Gson;
 import info.matai.App;
-import info.matai.models.enums.ServerTypes;
+import info.matai.models.enums.ServerType;
 import info.matai.models.servers.waterfall.GetWaterfallBuildsReponseDto;
 import info.matai.models.servers.waterfall.GetWaterfallVersionsReponseDto;
 import info.matai.services.common.utils.FileUtils;
@@ -20,12 +20,12 @@ public class PaperFetcherService implements IServerFetcherService {
 
   CloseableHttpClient httpClient = HttpClients.createDefault();
 
-  public PaperFetcherService(ServerTypes type) {
+  public PaperFetcherService(ServerType type) {
     if (
       !(
-        type == ServerTypes.PAPERMC ||
-        type == ServerTypes.WATERFALL ||
-        type == ServerTypes.VELOCITY
+        type == ServerType.PAPERMC ||
+        type == ServerType.WATERFALL ||
+        type == ServerType.VELOCITY
       )
     ) {
       throw new IllegalArgumentException("Invalid server type");
@@ -67,7 +67,7 @@ public class PaperFetcherService implements IServerFetcherService {
       String data = HttpUtils.get(API_URL + "/version_group/" + version);
       GetWaterfallBuildsReponseDto builds = new Gson()
       .fromJson(data, GetWaterfallBuildsReponseDto.class);
-      return builds.builds.get(builds.builds.size() - 1).build;
+      return builds.getBuilds().get(builds.getBuilds().size() - 1).getBuild();
     } catch (IOException e) {
       App.LOGGER.log(
         Level.SEVERE,

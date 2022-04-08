@@ -1,18 +1,18 @@
 package info.matai.models.configuration;
 
-import info.matai.models.enums.ServerTypes;
+import info.matai.models.enums.ServerType;
 import java.util.List;
 
 public class Server {
   private String mcVersion;
-  private ServerTypes serverType;
+  private ServerType serverType;
   private String serverBuild;
   private List<Plugin> plugins;
 
-  public Server(String mcVersion, String serverType, List<Plugin> plugins) {
-    this.setMcVersion(mcVersion);
-    this.setServerType(serverType);
-    this.setPlugins(plugins);
+  public Server(String mcVersion, ServerType serverType, List<Plugin> plugins) {
+    this.plugins = plugins;
+    this.serverType = serverType;
+    this.mcVersion = mcVersion;
   }
 
   public List<Plugin> getPlugins() {
@@ -31,11 +31,11 @@ public class Server {
     this.serverBuild = serverBuild;
   }
 
-  public ServerTypes getServerType() {
+  public ServerType getServerType() {
     return serverType;
   }
 
-  public void setServerType(ServerTypes serverType) {
+  public void setServerType(ServerType serverType) {
     this.serverType = serverType;
   }
 
