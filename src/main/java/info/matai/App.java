@@ -1,7 +1,6 @@
 package info.matai;
 
 import info.matai.commands.MainCommand;
-import info.matai.core.MpmCore;
 
 import picocli.CommandLine;
 
